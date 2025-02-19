@@ -19,6 +19,7 @@ public class ProductController {
     private ModelMapper modelMapper;
 
     @PostMapping(value = "/products")
+    @CrossOrigin(origins = "https://image-upload-react-spring-production.up.railway.app")
     public ResponseEntity<ProductResponse> create(@ModelAttribute ProductRequestDTO productRequestDTO) throws IOException {
         Product product = productService.create(productRequestDTO);
         ProductResponse productResponse = modelMapper.map(product, ProductResponse.class);
